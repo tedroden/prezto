@@ -1,8 +1,6 @@
-#
+# -*- mode: sh; sh-shell: zsh; -*-
 # Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+
 #
 
 # Source Prezto.
@@ -10,4 +8,23 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+
+# If I call `emacs` from the command line, I probably want emacs proper
+alias emacs="emacs -nw"
+alias e="emacsclient"
+
+eval "$(pyenv init -)"
+
+# make sure we don't use `pyenv` for brew
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+GOOGLE_SDK_DIR="${HOME}/code/deps/google-cloud-sdk"
+# The next line enables shell command completion for gcloud.
+if [ -f "${GOOGLE_SDK_DIR}/completion.zsh.inc" ]; then . "${GOOGLE_SDK_DIR}/completion.zsh.inc" ; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${GOOGLE_SDK_DIR}/path.zsh.inc" ]; then . "${GOOGLE_SDK_DIR}/path.zsh.inc"; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
+[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion

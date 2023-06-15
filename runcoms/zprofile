@@ -1,4 +1,4 @@
-#
+# -*- mode: sh; sh-shell: zsh; -*-
 # Executes commands at login pre-zshrc.
 #
 # Authors:
@@ -18,7 +18,7 @@ fi
 #
 
 if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nano'
+  export EDITOR='emacsclient -nw'
 fi
 if [[ -z "$VISUAL" ]]; then
   export VISUAL='nano'

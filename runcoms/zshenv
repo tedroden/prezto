@@ -1,4 +1,5 @@
-#
+# -*- mode: sh; sh-shell: zsh; -*-
+
 # Defines environment variables.
 #
 # Authors:
