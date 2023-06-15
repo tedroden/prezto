@@ -9,8 +9,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 
-# If I call `emacs` from the command line, I probably want emacs proper
-alias emacs="emacs -nw"
+# If I call `emacs` from the command line, I want it in the terminal.
+alias emacs="emacsclient -nw"
 alias e="emacsclient"
 
 eval "$(pyenv init -)"
@@ -28,3 +28,5 @@ if [ -f "${GOOGLE_SDK_DIR}/path.zsh.inc" ]; then . "${GOOGLE_SDK_DIR}/path.zsh.i
 export NVM_DIR="$HOME/.nvm"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
 [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
+
+alias ls="ls --color -F"
